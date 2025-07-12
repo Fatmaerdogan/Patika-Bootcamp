@@ -1,0 +1,492 @@
+Verinin Karar Yolculuğu 
+1. Collect (Veri Toplama)
+Her sektörde ihtiyaç duyulan veriler farklı kaynaklardan toplanır.
+
+
+Örnek kaynaklar: log dosyaları, sensör verileri, kullanıcı girdileri, sosyal medya.
+
+
+
+2. Move/Store (Depolama)
+Toplanan veriler bir veri kaynağında tarihsel olarak tutulmalıdır.
+
+
+Veri akışının sürdürülebilirliği için bir pipeline (veri hattı) kurulmalıdır.
+
+
+Amaç: güvenli ve sürekli veri akışı sağlamak.
+
+
+
+3. Explore/Transform (Keşfet / Dönüştür)
+Ham veriler üzerinde ihtiyaçlara göre dönüşüm ve temizleme işlemleri yapılır.
+
+
+Verinin bu aşamada işlenebilir formata gelmesi sağlanır.
+
+
+🕒 Not: Veri analizi sürecinin %70-85’i bu aşamada geçer.
+
+
+
+4. Data Cleaning (Veri Temizliği)
+Verilerde karşılaşılabilecek sorunlar:
+
+
+Eksik/kayıp, hatalı, tekrar eden ya da fazla özellikli veriler
+
+
+Çok büyük veri hacmi
+
+
+Format sorunları
+
+
+Güncel olmayan ya da çelişkili veriler
+
+
+
+5. Aggregate/Label (Özetleme / Etiketleme)
+Temizlenen veriler analiz ve modelleme için hazırlanır.
+
+
+Feature selection (özellik seçimi) ve labeling (etiketleme) yapılır.
+
+
+Örnek: Görüntüdeki nesnelerin kutularla etiketlenmesi (object detection).
+
+
+
+6. Learn/Optimize (Öğrenme / Optimizasyon)
+Hazırlanan veriler artık makine öğrenmesi algoritmalarıyla eğitilir.
+
+
+Hedef: modeller kurarak öngörüler veya karar destek sistemleri geliştirmek.
+
+
+
+7. Report (Raporlama)
+Model çıktıları ya da analiz sonuçları, iş birimlerinin kullanabileceği raporlar şeklinde sunulur.
+
+
+Görselleştirme: grafikler, dashboard’lar, infografikler ile desteklenir.
+CRISP-DM Süreci – Veri Analizinde Kullanılabilecek Bir Yöntem
+İşin Anlaşılması
+
+
+Veri analizine başlamadan önce iş hedefleri netleştirilir.
+
+
+Hangi sorulara cevap aranıyor? Hangi problemler çözülmek isteniyor?
+
+
+Verinin Anlaşılması
+
+
+Gerekli veriler toplanır ve ilk inceleme yapılır.
+
+
+Veri tipleri, kalitesi, eksiklikleri analiz edilir.
+
+
+Veri Hazırlama
+
+
+Modelleme için uygun hale getirilmiş veri hazırlanır.
+
+
+Temizleme, dönüştürme, seçme işlemleri yapılır.
+
+
+Modelleme
+
+
+İstatistiksel ve makine öğrenmesi modelleri kurulur.
+
+
+Farklı algoritmalar denenir ve değerlendirilir.
+
+
+Değerlendirme
+
+
+Kurulan modellerin performansı ölçülür.
+
+
+İş hedeflerine uygunluk test edilir. Uygun değilse geri dönülür.
+
+
+Kullanıma Sunma
+
+
+Başarılı model sonuçları raporlanır, görselleştirilir veya iş birimlerine sunulur.
+
+
+Gerekirse sistem içine entegre edilir.
+Veri Tabanı – Temel Notlar
+📌 1. Veri Yönetimi ve Depolama Yapısı
+Veritabanı, bilgilerin düzenli, sistemli ve kolay erişilebilir şekilde dijital olarak saklandığı ortamlardır.
+
+
+Amaç: Verileri arama, düzenleme, analiz etme gibi işlemler için kullanıma uygun hale getirmektir.
+
+
+
+❓ 2. Neden Veri Tabanı Kullanılır?
+Büyük veriyi düzenli tutmak
+
+
+Veriye hızlı ve güvenli erişim sağlamak
+
+
+Eşzamanlı çok kullanıcıyla çalışabilmek
+
+
+Yedekleme yapmak ve hataları önlemek
+
+
+
+🧱 3. Veri Tabanı Nelerden Oluşur?
+Kavram
+Açıklama
+Tablo
+Verilerin satır ve sütunlarla tutulduğu yapı
+Satır
+Her bir kayıt (örnek: 1 müşteri)
+Kolon
+Kayıtların özellikleri (örnek: Ad, Soyad)
+İndeks
+Veriyi sıralı ve hızlı erişilebilir tutan yapı
+
+
+🖥️ 4. Veri Tabanı Platformları
+Platform
+Açıklama
+Microsoft SQL Server
+Microsoft sistemlerinde kurumsal kullanımda yaygın
+Oracle Database
+Büyük, karmaşık sistemlerde tercih edilir
+MySQL
+Açık kaynak, web projelerinde sık kullanılır
+PostgreSQL
+Güçlü, açık kaynaklı, veri tutarlılığı yüksek sistem
+
+
+🌍 5. Veri Tabanı Kullanım Alanları
+Sağlık sektörü
+
+
+Finans ve bankacılık
+
+
+E-ticaret ve perakende
+
+
+Üretim ve sanayi
+
+
+Kamu kurumları
+
+
+Eğitim sektörü
+
+
+Ulaşım ve lojistik
+
+
+Telekomünikasyon
+
+
+İnsan kaynakları ve IK teknolojileri
+
+🧾 Temel SQL Komutları – Özet Notlar
+🔍 Veri Sorgulama ve İşleme
+Komut
+Açıklama
+SELECT
+Veritabanından kayıtları çeker.
+WHERE
+Koşul belirterek veriyi filtreler.
+ORDER BY
+Sonuçları artan (ASC) ya da azalan (DESC) şekilde sıralar.
+GROUP BY
+Verileri gruplar (örneğin: şehir bazlı toplam satış).
+JOIN
+Ortak sütunlar üzerinden iki tabloyu birleştirir.
+
+
+➕ Veri Ekleme, Güncelleme ve Silme
+Komut
+Açıklama
+INSERT INTO
+Tabloya yeni kayıt ekler.
+UPDATE
+Tablo içindeki verileri günceller.
+DELETE
+Belirli kayıtları siler.
+TRUNCATE TABLE
+Tabloyu tamamen temizler (yapı kalır, içerik silinir).
+
+
+🧱 Tablo ve Veritabanı Yapıları
+Komut
+Açıklama
+CREATE TABLE
+Yeni tablo oluşturur.
+DROP TABLE
+Tabloyu ve içeriğini tamamen siler.
+ALTER TABLE
+Var olan tablonun yapısını değiştirir.
+CREATE DATABASE
+Yeni veritabanı oluşturur.
+ALTER DATABASE
+Var olan veritabanının özelliklerini değiştirir.
+
+
+📊 İstatistiksel İşlemler
+Komut
+Açıklama
+COUNT, SUM, AVG, MAX, MIN
+Veri üzerinde sayma, toplama, ortalama, en büyük, en küçük değer işlemleri yapılır.
+
+
+SQL Veri Tipleri
+1. Sayısal Veri Tipleri (Numeric Types)
+Veri Tipi
+Açıklama
+Örnek
+INT
+Tam sayılar (pozitif/negatif)
+10, -25, 10000
+BIGINT
+Çok büyük tam sayılar
+922337203685...
+SMALLINT
+Küçük boyutlu tam sayılar
+32767’ye kadar
+DECIMAL(p,s) / NUMERIC(p,s)
+Kesirli, hassas sayılar (p: toplam rakam, s: virgül sonrası)
+123.45, DECIMAL(5,2)
+FLOAT
+Kayan noktalı yaklaşık ondalık sayılar
+3.14159
+REAL
+Daha az hassas float (daha az bellek tüketir)
+1.23
+BIT
+Mantıksal değerler: 0 veya 1
+1 (true), 0 (false)
+
+
+📝 2. Metinsel Veri Tipleri (Character Types)
+Veri Tipi
+Açıklama
+Örnek
+CHAR(n)
+Sabit uzunlukta metin (her zaman n karakter)
+'A ' (n=5 ise 'A____')
+VARCHAR(n)
+Değişken uzunlukta metin (maksimum n karakter)
+'Ahmet'
+TEXT
+Uzun metin açıklamaları (sınırsız veya çok büyük boyutlu)
+'Bu bir açıklamadır'
+
+3. Tarih ve Zaman Veri Tipleri (Date & Time Types)
+Veri Tipi
+Açıklama
+Örnek
+DATE
+Yalnızca tarih bilgisi (yıl-ay-gün)
+'2024-05-11'
+TIME
+Yalnızca saat bilgisi (saat:dakika:saniye)
+'14:30:06'
+DATETIME
+Hem tarih hem saat bilgisi
+'2024-05-11 14:30:00'
+TIMESTAMP
+Zaman damgası (otomatik güncellenir)
+'2024-05-11 14:30:00.123'
+
+
+⚙️ 4. Mantıksal / Diğer Tipler
+Veri Tipi
+Açıklama
+Örnek
+BOOLEAN
+True/False değerleri (bazı sistemlerde TINYINT)
+TRUE, FALSE
+BLOB
+Binary Large Object: resim, video, PDF gibi dosyalar
+BLOB veri
+UUID / UNIQUEIDENTIFIER
+Benzersiz kimlik numarası (36 karakter)
+'550e8400-e29b...'
+
+
+✅ Hangi Tipi Ne Zaman Seçmeliyim?
+Kullanım Senaryosu
+Önerilen Veri Tipi
+ID, sıra numarası
+INT, BIGINT
+İsim, açıklama
+VARCHAR(n)
+Uzun açıklamalar
+TEXT, CLOB
+Fiyat, hassas sayılar
+DECIMAL(p,s)
+Kayıt zamanı
+DATETIME, TIMESTAMP
+Doğru/yanlış kontroller
+BOOLEAN, BIT
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+-- MSreplication_options tablosundaki tüm kayıtları ve belirli sütunları listele
+SELECT  
+    optname,
+    value,
+    major_version,
+    minor_version,
+    revision,
+    install_failures 
+FROM MSreplication_options;
+
+
+-- MSreplication_options tablosuna yeni bir kayıt ekler
+INSERT INTO MSreplication_options (
+    optname, value, major_version, minor_version, revision, install_failures
+)
+VALUES (
+    'KIZBASINA', 1, 90, 0, 0, 0
+);
+
+
+-- 'KIZBASINA' adındaki kaydı getirir
+SELECT * FROM MSreplication_options WHERE optname = 'KIZBASINA';
+
+
+-- 'KIZBASINA' adındaki kaydın value sütununu 2 olarak günceller
+UPDATE MSreplication_options
+SET value = 2
+WHERE optname = 'KIZBASINA';
+
+
+-- Güncellemeden sonra 'KIZBASINA' adındaki kaydı tekrar kontrol eder
+SELECT * FROM MSreplication_options WHERE optname = 'KIZBASINA';
+
+
+-- 'KIZBASINA' adındaki kaydı siler
+DELETE FROM MSreplication_options WHERE optname = 'KIZBASINA';
+
+
+-- value değeri 1 olan kayıtları getirir (1'e eşit olanlar)
+SELECT * FROM MSreplication_options WHERE value = 1;
+
+
+-- value değeri 1'den farklı olan kayıtları getirir (1'e eşit olmayanlar)
+SELECT * FROM MSreplication_options WHERE value <> 1;
+
+
+-- value değeri 1'den büyük olan kayıtları getirir
+SELECT * FROM MSreplication_options WHERE value > 1;
+
+
+-- value değeri 0 ile 2 arasında olan kayıtları getirir (0, 1, 2 dahil)
+SELECT * FROM MSreplication_options WHERE value BETWEEN 0 AND 2;
+
+
+-- optname MER ile başlayan kayıtları getirir
+SELECT * FROM MSreplication_options WHERE optname LIKE 'MER%';
+
+-- optname GE ile biten kayıtları getirir
+SELECT * FROM MSreplication_options WHERE optname LIKE '%GE';
+
+-- optname içinde ER geçen kayıtları getirir
+SELECT * FROM MSreplication_options WHERE optname LIKE '%ER%';
+
+
+-- value değeri 1, 2 veya 3 olan kayıtları getirir
+SELECT * FROM MSreplication_options WHERE value IN (1, 2, 3);
+
+
+-- value değeri 1, 2 veya 3 olmayan kayıtları getirir
+SELECT * FROM MSreplication_options WHERE value NOT IN (1, 2, 3);
+
+
+-- spt_values tablosunda doğum tarihinden yaş hesaplayan (örnek) bir güncelleme sorgusu
+-- UPDATE spt_values SET AGE = DATEDIFF(YEAR, BIRTHDATE, GETDATE())
+-- (Not: Gerçek kullanım için BIRTHDATE alanının mevcut olması gerekir)
+
+
+-- spt_values tablosundaki STATUS sütununda kaç farklı değer olduğunu bulur
+SELECT DISTINCT status FROM spt_values;
+
+
+-- spt_values tablosundaki tüm kayıtları 'number' sütununa göre azalan şekilde sıralar
+SELECT * FROM spt_values ORDER BY number DESC;
+
+
+-- 2020 yılına ait tüm ciroyu toplar ve TOTALLINETOTAL sütunu adıyla gösterir
+SELECT SUM(linetotal) AS TOTALLINETOTAL FROM saleorders WHERE year_ = 2020;
+
+-- 2020 yılında toplam kaç işlem yapıldığını sayar
+SELECT COUNT(*) AS KAYIT FROM saleorders WHERE year_ = 2020;
+
+-- 2020 yılında bir müşterinin yaptığı en az alışveriş tutarını bulur
+SELECT MIN(linetotal) FROM saleorders WHERE year_ = 2020;
+
+-- 2020 yılında bir müşterinin yaptığı en fazla alışveriş tutarını bulur
+SELECT MAX(linetotal) FROM saleorders WHERE year_ = 2020;
+
+-- 2020 yılında bir müşterinin ortalama alışveriş tutarını bulur
+SELECT AVG(linetotal) FROM saleorders WHERE year_ = 2020;
+
+
+-- 2020 yılına ait Samsun şehri için toplam ciro, işlem sayısı, minimum, maksimum ve ortalama tutarı getirir
+SELECT 
+    SUM(linetotal) AS TOTALLINETOTAL,
+    COUNT(*) AS KAYIT,
+    MIN(linetotal) AS MIN,
+    MAX(linetotal) AS MAX,
+    AVG(linetotal) AS AVG
+FROM saleorders 
+WHERE year_ = 2020 AND city = 'SAMSUN';
+
+
+-- 2020 yılında her şehirde harcanan toplam parayı listeler
+SELECT city, SUM(linetotal) 
+FROM saleorders 
+WHERE year_ = 2020 
+GROUP BY city;
+
+
+-- 2020 yılında şehir bazlı toplam harcama tutarını büyükten küçüğe sıralar
+SELECT city, SUM(linetotal) 
+FROM saleorders 
+WHERE year_ = 2020 
+GROUP BY city 
+ORDER BY SUM(linetotal) DESC;
+
+
+-- 2020 yılında her şehirde her markaya ne kadar harcama yapıldığını listeler, büyükten küçüğe sıralı
+SELECT city, brand, SUM(linetotal) 
+FROM saleorders 
+WHERE year_ = 2020 
+GROUP BY city, brand 
+ORDER BY SUM(linetotal) DESC;
+
+
+-- Dalin markasının haftanın hangi günlerinde daha çok satıldığını gösterir
+SELECT dayofweek, SUM(amount) AS amount 
+FROM saleorders 
+WHERE brand = 'DALIN' 
+GROUP BY dayofweek;
+
+-- Dalin markasının kategori bazlı satış miktarlarını gösterir
+SELECT category1, category2, category3, SUM(amount) AS amount 
+FROM saleorders 
+WHERE brand = 'DALIN' 
+GROUP BY category1, category2, category3;
