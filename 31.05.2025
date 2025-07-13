@@ -1,3 +1,288 @@
+# İlişkisel Veri Tabanı Nedir?
+
+İlişkisel veritabanı, verileri **tablolar** (satır ve sütunlar) halinde organize eden ve bu tablolar arasındaki **ilişkileri (relation)** tanımlayan **veritabanı modelidir**.
+
+## Avantajları
+
+- Veriler düzenlidir ve tekrarsız tutulur.
+- Veri bütünlüğü kurallarına uyar.
+- Karmaşık sorgular için **SQL dili** kullanılır.
+- Çok büyük veri kütlelerini hızlı işleyebilir.
+
+# İlişkisel Veri Tabanı Temel Özellikleri
+
+İlişkisel veritabanlarında veriler tablolar hâlinde organize edilir. Her tablo, belirli bir veri kümesini temsil eder ve satır-sütun yapısıyla çalışır.
+
+## Özellikler ve Açıklamaları
+
+| Özellik                      | Açıklama                                                                    |
+|------------------------------|-----------------------------------------------------------------------------|
+| **Tablolar**                 | Her veri kümesi (örneğin: Müşteriler, Siparişler) ayrı bir tabloya yazılır. |
+| **Satırlar (kayıtlar)**      | Her satır bir veriyi temsil eder (örn. bir müşteri).                        |
+| **Sütunlar (alanlar)**       | Her sütun verinin bir özelliğidir (örn. Ad, Soyad, Telefon).                |
+| **Birincil Anahtar (Primary Key)** | Her satırı benzersiz tanımlar.                                        |
+| **Yabancı Anahtar (Foreign Key)**  | Tablolar arasında ilişki kurar (örn. sipariş-müşteri). 
+
+# İlişkisel Veri Tabanı İş Akışları
+
+Bu doküman, ilişkisel veritabanı yapısında kullanıcı kayıt işlemi ve ürün-sepet yönetimi süreçlerini açıklamaktadır.
+
+---
+
+## 🧾 1. Kullanıcı Kaydı (Registration / Login)
+
+### 📂 Veritabanı Tabloları
+
+- **KULLANICILAR** → KullanıcıID, Ad, Soyad, Email, ŞifreHash, KayıtTarihi  
+- **ADRESLER** → AdresID, KullanıcıID (FK), İl, İlçe, AçıkAdres, Tip (Fatura/Teslimat)
+
+### 🔄 Süreç
+
+1. Kullanıcı kayıt olur veya giriş yapar.  
+2. Giriş yapan kullanıcıya özel sepet başlatılır.
+
+---
+
+## 🛒 2. Ürünleri Görüntüleme ve Sepete Ekleme
+
+### 📂 Veritabanı Tabloları
+
+- **URUNLER** → UrunID, Adı, Açıklama, Fiyat, StokAdedi, Marka  
+- **KATEGORILER** → KategoriID, Ad  
+- **SEPET** → SepetID, KullanıcıID, OluşturmaTarihi  
+- **SEPET_URUNLER** → SepetID (FK), UrunID (FK), Adet
+
+### 🔄 Süreç
+
+1. Kullanıcı ürünleri listeler (filtre, arama, kategori).  
+2. Ürünler sepete eklenir.  
+3. Sepet tablosu kullanıcının seçtiği ürünlerle dolar.
+
+# İlişkisel Veri Tabanı: Sipariş ve Ödeme Süreci
+
+Bu belge, e-ticaret senaryosunda siparişin verilmesi ve ödeme işlemi süreçlerini açıklayan ilişkisel veritabanı yapısını içermektedir.
+
+---
+
+## 📦 3. Siparişin Verilmesi (Ödeme Öncesi)
+
+### 📂 Veritabanı Tabloları
+
+- **SIPARISLER** → SiparisID, KullanıcıID, SiparisTarihi, Durum (Onaylandı, Hazırlanıyor)  
+- **SIPARIS_DETAYLARI** → SiparisID (FK), UrunID (FK), Adet, BirimFiyat, İndirim, KDV  
+- **ODEMELER** → OdemeID, SiparisID (FK), Tutar, Yöntem (Kredi, Havale), OdemeTarihi
+
+### 🔄 Süreç
+
+1. Sepet onaylanır, veritabanına **SIPARIS** olarak kaydedilir.  
+2. Sepetteki ürünler **SIPARIS_DETAYLARI**'na aktarılır.  
+3. Kullanıcı ödeme sayfasına yönlendirilir.
+
+---
+
+## 💳 4. Ödeme İşlemi
+
+### 📂 Veritabanı Tabloları
+
+- **ODEME_GECMISI** → KullanıcıID, OdemeID, Sonuç, BankaReferansKodu  
+- **FATURA** → FaturaID, SiparisID (FK), FaturaTarihi, Tip (e-Fatura)
+
+### 🔄 Süreç
+
+1. Kredi kartı ile ödeme yapılır → ödeme servisinden onay alınır.  
+2. Ödeme sonucu ve referans kodu saklanır.  
+3. Fatura kaydı oluşturulur.
+
+# İlişkisel Veri Tabanı: Kargo, Teslimat ve Geri Bildirim Süreçleri
+
+Bu belge, e-ticaret sistemlerinde kargo işlemleri ile opsiyonel iade ve yorum süreçlerini açıklayan ilişkisel veritabanı yapısını içermektedir.
+
+---
+
+## 🚚 5. Kargo ve Teslimat Süreci
+
+### 📂 Veritabanı Tabloları
+
+- **KARGO** → KargoID, SiparisID, KargoFirması, TakipNo, Durum  
+- **TESLIMAT_ADRESI** → SiparisID, AdresID
+
+### 🔄 Süreç
+
+1. Ürün hazırlanır → kargo bilgisi oluşturulur.  
+2. Kullanıcıya kargo takip numarası iletilir.  
+3. Teslimat durumu güncellenir.
+
+---
+
+## 💬 6. İade & Yorum Süreci (Opsiyonel)
+
+### 📂 Veritabanı Tabloları
+
+- **IADE_TALEPLERI** → IadeID, SiparisDetayID, Sebep, Durum  
+- **URUN_YORUMLARI** → YorumID, UrunID, KullanıcıID, YorumMetni, Puan
+
+### 🔄 Süreç
+
+- Kullanıcı ürünü iade talebinde bulunabilir.  
+- Kullanıcı ürünlere yorum ve puan ekleyebilir.
+
+# Stage (Staging) Tablolar
+
+**Stage (staging)** tablolar, dış sistemlerden gelen verilerin ilk olarak yüklendiği geçici alanlardır.  
+Ham veri burada tutulur, temizlenir ve dönüştürülmeden önce kontrol edilir.
+
+## Özellikler ve Açıklamaları
+
+| Özellik                | Açıklama                                                                 |
+|------------------------|--------------------------------------------------------------------------|
+| **Geçicidir**          | Genellikle işlem sonrası silinir veya üzerine yazılır.                   |
+| **Veri Kalitesi Kontrolü** | Null kontrolleri, tip dönüşümleri, hata loglama burada yapılır.      |
+| **Performans**         | Yüksek performans için genellikle indeks kullanılmaz.                    |
+| **Kaynak Sisteme Benzer** | Kaynak sistemdeki veri yapısının aynısı veya çok benzeri olabilir.    |
+
+# Fact Tablolar
+
+**Fact tablolar**, ölçülebilir, sayısal verileri tutan ve genellikle **zaman içinde analiz edilen** ana tablolardır.  
+Veri ambarının kalbidir. Çok veri olmalı
+
+## Özellikler ve Açıklamaları
+
+| Özellik                 | Açıklama                                                                 |
+|-------------------------|--------------------------------------------------------------------------|
+| **Ölçü Tutarları**      | Satış miktarı, gelir, indirim vs. gibi sayısal değerler.                 |
+| **Foreign Key**         | Dimension (boyut) tablolarına bağlanır.                                  |
+| **Yüksek Satır Sayısı** | Milyonlarca satır içerebilir.                                            |
+| **Zaman Boyutu**        | Genellikle tarih/zaman üzerinden analiz edilir.                          |
+
+# Dimension Tablolar
+
+**Dimension tablolar**, bağlam sağlar.  
+**Fact** tablosundaki sayısal verilerin **neyle ilgili olduğunu** açıklar.Tek veri olmalı
+
+## Özellikler ve Açıklamaları
+
+| Özellik              | Açıklama                                                                 |
+|----------------------|--------------------------------------------------------------------------|
+| **Tanımlayıcı Veri** | Ürün adı, müşteri bilgisi, tarih detayları gibi.                         |
+| **Daha Az Satır**    | Genellikle fact tablolarına göre çok daha az satıra sahiptir.            |
+| **Anahtarlar**       | Fact tabloya bağlanan **primary key** içerir.                            |
+
+# Datamartlar
+
+**Datamart**, bir veri ambarının alt kümesi olarak düşünülebilir. Belirli bir departmanın ya da iş biriminin ihtiyaç duyduğu verilere odaklanır.
+
+## Temel Özellikler
+
+- **Datamart**, veri ambarının daha küçük, özelleştirilmiş bir versiyonudur.
+- Belirli iş birimlerine özel ve hızlı analiz sağlar.
+- Genellikle **fact + dimension** (yani yıldız şeması) yapısına dayanır.
+- Büyük yapılarda **bağlı datamart**, küçük yapılarda **bağımsız datamart** kullanılır.
+
+# Yıldız Şeması (Star Schema)
+
+**Yıldız şeması**, bir **fact tablo** etrafında konumlanmış birçok **dimension (boyut) tablosundan** oluşur.  
+Bu yapı, adını bir yıldıza benzer görünümünden alır: ortada fact tablo, çevresinde ona bağlı boyut tabloları yer alır.
+
+## Avantajlar ve Açıklamaları
+
+| Avantaj            | Açıklama                                                                 |
+|--------------------|--------------------------------------------------------------------------|
+| **Basitlik**       | Kullanıcılar için kolay anlaşılır.                                       |
+| **Performans**     | Hızlı sorgular sağlar.                                                   |
+| **Kolay Raporlama**| Özellikle BI (iş zekâsı) araçlarında idealdir.                           |
+| **Boyutsal Analiz**| Zaman, ürün, müşteri gibi boyutlarla çok yönlü analiz yapılabilir.       |
+
+Aşağıdaki şema, **Yıldız Şeması (Star Schema)** veri modelini temsil etmektedir.  
+Bu modelde bir **Fact Table** merkezi konumda yer alırken, etrafında ona bağlanan çeşitli **Dimension Table** (boyut tabloları) bulunur.
+
+# Yıldız Şeması vs Kar Tanesi Şeması
+
+Aşağıdaki tablo, veri ambarı modellemesinde kullanılan iki temel şema yapısını karşılaştırır:  
+**Yıldız Şeması (Star Schema)** ve **Kar Tanesi Şeması (Snowflake Schema)**
+
+| Özellik                | Yıldız Şeması                             | Kar Tanesi Şeması                          |
+|------------------------|-------------------------------------------|--------------------------------------------|
+| **Yapı**               | Boyut tabloları **denormalize**           | Boyut tabloları **normalize**              |
+| **Sorgu Karmaşıklığı** | Daha basit                                | Daha karmaşık                              |
+| **Performans**         | Daha hızlı (daha az JOIN)                 | Daha yavaş                                 |
+| **Veri Tekrarı**       | Fazla olabilir                            | Daha az                                    |
+
+## Özet
+
+- **Yıldız Şeması**: Kullanımı kolay, hızlı sorgular için idealdir. Ancak veri tekrarına sebep olabilir.
+- **Kar Tanesi Şeması**: Veri bütünlüğü ve daha az tekrar sağlar. Ancak daha fazla JOIN işlemi içerdiğinden sorgular yavaştır.
+
+# SQL JOINs 
+
+Bu dosya, SQL'deki JOIN işlemlerinin mantığını ve sorgu örneklerini Venn diyagramlarıyla açıklamaktadır.
+
+## JOIN Türleri ve Açıklamaları
+
+| JOIN Türü               | Anlamı                                                                                 |
+|--------------------------|----------------------------------------------------------------------------------------|
+| **LEFT INCLUSIVE**      | A tablosundaki tüm kayıtlar ve B ile eşleşenler                                       |
+| **LEFT EXCLUSIVE**      | A tablosundaki sadece B ile eşleşmeyen kayıtlar                                       |
+| **RIGHT INCLUSIVE**     | B tablosundaki tüm kayıtlar ve A ile eşleşenler                                       |
+| **RIGHT EXCLUSIVE**     | B tablosundaki sadece A ile eşleşmeyen kayıtlar                                       |
+| **FULL OUTER INCLUSIVE**| A ve/veya B tablosundaki tüm kayıtlar                                                 |
+| **FULL OUTER EXCLUSIVE**| Sadece A veya sadece B'de olan kayıtlar (kesişim hariç)                                |
+| **INNER JOIN**          | Hem A hem de B tablosunda eşleşen kayıtlar (kesişim)                                  |
+
+---
+
+## SQL Sorgu Örnekleri
+
+```sql
+-- LEFT INCLUSIVE
+SELECT [Select List]
+FROM TableA
+LEFT OUTER JOIN TableB
+  ON A.Key = B.Key;
+
+-- LEFT EXCLUSIVE
+SELECT [Select List]
+FROM TableA
+LEFT OUTER JOIN TableB
+  ON A.Key = B.Key
+WHERE B.Key IS NULL;
+
+-- RIGHT INCLUSIVE
+SELECT [Select List]
+FROM TableA
+RIGHT OUTER JOIN TableB
+  ON A.Key = B.Key;
+
+-- RIGHT EXCLUSIVE
+SELECT [Select List]
+FROM TableA
+RIGHT OUTER JOIN TableB
+  ON A.Key = B.Key
+WHERE A.Key IS NULL;
+
+-- FULL OUTER INCLUSIVE
+SELECT [Select List]
+FROM TableA
+FULL OUTER JOIN TableB
+  ON A.Key = B.Key;
+
+-- FULL OUTER EXCLUSIVE
+SELECT [Select List]
+FROM TableA
+FULL OUTER JOIN TableB
+  ON A.Key = B.Key
+WHERE A.Key IS NULL OR B.Key IS NULL;
+
+-- INNER JOIN
+SELECT [Select List]
+FROM TableA
+INNER JOIN TableB
+  ON A.Key = B.Key;
+
+
+
+
+////////////////////////////////////////////////////////
+
 --TABLO BIRLESTIRILMESI
 
 select top 5 * from ORDERS o
