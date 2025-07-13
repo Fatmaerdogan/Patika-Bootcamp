@@ -149,149 +149,146 @@ Veritabanı, bilgilerin düzenli, sistemli ve erişilebilir şekilde dijital ola
 
 /////////////////////////////////////////////////////////////////////////////////
 
--- MSreplication_options tablosundaki tüm kayıtları ve belirli sütunları listele
-SELECT  
-    optname,
-    value,
-    major_version,
-    minor_version,
-    revision,
-    install_failures 
-FROM MSreplication_options;
+---1) SELECT KOMUTU YAZARKEN KOLONLAR VE FROM TABLO BELİRLENİR. Database'in nerede olduğu önemlidir.
+--KOLON İSİMLERİNİ DİREKT ATABİLİRİ.
+---
+
+SELECT USERNAME_,NAMESURNAME FROM USERS
+
+SELECT * FROM USERS
+
+--2_INSERT KOMUTU
+
+INSERT INTO
+USERS
+(ID,USERNAME_, PASSWORD_, NAMESURNAME, EMAIL, GENDER, BIRTHDATE, CREATEDDATE, TELNR1, TELNR2)
+VALUES
+(9679,'KIZBASINA','1234','KIZBASINADERNEK','KIZBASINA@GMAIL.COM','K','2025-01-01','2025-01-01','5325323232','5325323232')
+
+--3_UPDATE KOMUTU
+SELECT * FROM USERS 
+UPDATE USERS
+SET TELNR1='553555544' WHERE ID=9679
 
 
--- MSreplication_options tablosuna yeni bir kayıt ekler
-INSERT INTO MSreplication_options (
-    optname, value, major_version, minor_version, revision, install_failures
-)
-VALUES (
-    'KIZBASINA', 1, 90, 0, 0, 0
-);
+--4-DELETE KOMUTU
+DELETE FROM TABLOADI OLARAK KULLANILIR.
+
+DELETE USERS WHERE ID=9679
 
 
--- 'KIZBASINA' adındaki kaydı getirir
-SELECT * FROM MSreplication_options WHERE optname = 'KIZBASINA';
+--5-WHERE KOMUTU
+SELECT * FROM TABLOADI WHERE KOLON=DEĞER
+
+--  =  EŞİTTİR
+SELECT * FROM USERS WHERE GENDER='K'
+
+--<> EŞİT DEĞİLDİR
+SELECT * FROM USERS WHERE GENDER<>'K'
+
+--> BÜYÜKTÜR
+SELECT * FROM USERS WHERE ID>7000
+
+--< KÜÇÜKTÜR
+SELECT * FROM USERS WHERE ID<1000
+
+-->= BÜYÜKTÜR YA DA EŞİTTİR
+SELECT * FROM USERS WHERE ID>=1000
+
+--<= KÜÇÜKTÜR YA DA EŞİTTİR
+SELECT * FROM USERS WHERE ID<=1000
 
 
--- 'KIZBASINA' adındaki kaydın value sütununu 2 olarak günceller
-UPDATE MSreplication_options
-SET value = 2
-WHERE optname = 'KIZBASINA';
+--BETWEEN  ARASINDADIR
+SELECT * FROM USERS WHERE ID BETWEEN 10 AND 15
+
+--LIKE İLE BAŞLAR,İLE BİTER,İÇERİR
+SELECT * FROM USERS WHERE NAMESURNAME LIKE 'MU%'
+SELECT * FROM USERS WHERE NAMESURNAME LIKE '%MU'
+SELECT * FROM USERS WHERE NAMESURNAME LIKE '%MUŞ%'
+
+--IN  İÇİNDEDİR
+SELECT * FROM USERS WHERE ID IN (3,4,8)
+
+--NOT IN
+SELECT * FROM USERS WHERE GENDER NOT IN ('K')
+
+---8)AGE KOLONU EKLEME
+UPDATE USERS SET AGE=DATEDIFF(YEAR,BIRTHDATE,GETDATE())
+SELECT * FROM USERS WHERE AGE IN (26)
+
+--ALTER TABLE users DROP COLUMN age  --age kolonunu silme
 
 
--- Güncellemeden sonra 'KIZBASINA' adındaki kaydı tekrar kontrol eder
-SELECT * FROM MSreplication_options WHERE optname = 'KIZBASINA';
+--9)AND VE OR KULLANIMI
+SELECT * FROM USERS WHERE GENDER='E' AND NAMESURNAME LIKE '%Ali%'
 
+SELECT * FROM USERS WHERE GENDER='E' OR NAMESURNAME LIKE '%Ali%'
 
--- 'KIZBASINA' adındaki kaydı siler
-DELETE FROM MSreplication_options WHERE optname = 'KIZBASINA';
+--10)DISTINCT KULLANIMI
+SELECT DISTINCT AGE FROM USERS
+SELECT DISTINCT GENDER FROM USERS
 
+--11)ORDER BY
+SELECT  * FROM USERS ORDER BY AGE ASC
+SELECT  * FROM USERS ORDER BY AGE DESC
+SELECT  * FROM USERS ORDER BY AGE
 
--- value değeri 1 olan kayıtları getirir (1'e eşit olanlar)
-SELECT * FROM MSreplication_options WHERE value = 1;
+SELECT  * FROM USERS ORDER BY ID
+SELECT  * FROM USERS ORDER BY ID DESC
 
+--12)TOP KOMUTU
+SELECT TOP 5 *  FROM USERS 
 
--- value değeri 1'den farklı olan kayıtları getirir (1'e eşit olmayanlar)
-SELECT * FROM MSreplication_options WHERE value <> 1;
+--13)AGGREGATE FUNCTIONS
+---TABLOYU TANI
+(SUM,COUNT,MIN,MAX,AVG)
 
+--SUM
+SELECT SUM(AMOUNT) FROM [dbo].[SALEORDERS]
 
--- value değeri 1'den büyük olan kayıtları getirir
-SELECT * FROM MSreplication_options WHERE value > 1;
+--COUNT
+SELECT COUNT(*) FROM [dbo].[SALEORDERS]
 
+--MIN
+SELECT MIN(LINETOTAL) FROM [dbo].[SALEORDERS]
 
--- value değeri 0 ile 2 arasında olan kayıtları getirir (0, 1, 2 dahil)
-SELECT * FROM MSreplication_options WHERE value BETWEEN 0 AND 2;
+--MAX
+SELECT MAX(LINETOTAL) FROM [dbo].[SALEORDERS]
 
+--AVG
+SELECT AVG(LINETOTAL) FROM [dbo].[SALEORDERS]
 
--- optname MER ile başlayan kayıtları getirir
-SELECT * FROM MSreplication_options WHERE optname LIKE 'MER%';
+---HEPSİ
+SELECT SUM(AMOUNT),SUM(LINETOTAL),COUNT(*),MIN(LINETOTAL),MAX(LINETOTAL) FROM [dbo].[SALEORDERS]
 
--- optname GE ile biten kayıtları getirir
-SELECT * FROM MSreplication_options WHERE optname LIKE '%GE';
+SELECT SUM(AMOUNT) AS ADET,SUM(LINETOTAL) AS CIRO,COUNT(*) AS KAYITSAY,MIN(LINETOTAL) AS MINTUTAR,MAX(LINETOTAL) AS MAKSTUTAR FROM [dbo].[SALEORDERS]
+WHERE CITY='SAMSUN'
 
--- optname içinde ER geçen kayıtları getirir
-SELECT * FROM MSreplication_options WHERE optname LIKE '%ER%';
+--GROUP BY
+SELECT CITY,SUM(AMOUNT)AS ADET FROM [dbo].[SALEORDERS]
+GROUP BY CITY
 
+SELECT CITY,SUM(AMOUNT)AS ADET FROM [dbo].[SALEORDERS]
+WHERE BRAND='ULUDAG'
+GROUP BY CITY
 
--- value değeri 1, 2 veya 3 olan kayıtları getirir
-SELECT * FROM MSreplication_options WHERE value IN (1, 2, 3);
+SELECT CITY,SUM(LINETOTAL)AS ADET FROM [dbo].[SALEORDERS]
+WHERE BRAND='ULUDAG'  
+GROUP BY CITY
+HAVING SUM(LINETOTAL)>200
 
+----DALIN MARKASININ GÜN BAZLI SATIŞ ADETLERİ
+SELECT DAYOFWEEK_,SUM(AMOUNT)AS ADET FROM [dbo].[SALEORDERS]
+WHERE BRAND='DALIN'  
+GROUP BY DAYOFWEEK_ 
 
--- value değeri 1, 2 veya 3 olmayan kayıtları getirir
-SELECT * FROM MSreplication_options WHERE value NOT IN (1, 2, 3);
+---ÜRÜN KATEGORİLERİNE GÖRE TOPLAM SATIŞLAR
+SELECT CATEGORY1,CATEGORY2,CATEGORY3,SUM(AMOUNT)AS ADET FROM [dbo].[SALEORDERS]
+WHERE BRAND='DALIN'  
+GROUP BY CATEGORY1,CATEGORY2,CATEGORY3
 
+--MÜŞTERİ SAYTISI
+SELECT COUNT(DISTINCT USERNAME_) FROM [dbo].[SALEORDERS]
 
--- spt_values tablosunda doğum tarihinden yaş hesaplayan (örnek) bir güncelleme sorgusu
--- UPDATE spt_values SET AGE = DATEDIFF(YEAR, BIRTHDATE, GETDATE())
--- (Not: Gerçek kullanım için BIRTHDATE alanının mevcut olması gerekir)
-
-
--- spt_values tablosundaki STATUS sütununda kaç farklı değer olduğunu bulur
-SELECT DISTINCT status FROM spt_values;
-
-
--- spt_values tablosundaki tüm kayıtları 'number' sütununa göre azalan şekilde sıralar
-SELECT * FROM spt_values ORDER BY number DESC;
-
-
--- 2020 yılına ait tüm ciroyu toplar ve TOTALLINETOTAL sütunu adıyla gösterir
-SELECT SUM(linetotal) AS TOTALLINETOTAL FROM saleorders WHERE year_ = 2020;
-
--- 2020 yılında toplam kaç işlem yapıldığını sayar
-SELECT COUNT(*) AS KAYIT FROM saleorders WHERE year_ = 2020;
-
--- 2020 yılında bir müşterinin yaptığı en az alışveriş tutarını bulur
-SELECT MIN(linetotal) FROM saleorders WHERE year_ = 2020;
-
--- 2020 yılında bir müşterinin yaptığı en fazla alışveriş tutarını bulur
-SELECT MAX(linetotal) FROM saleorders WHERE year_ = 2020;
-
--- 2020 yılında bir müşterinin ortalama alışveriş tutarını bulur
-SELECT AVG(linetotal) FROM saleorders WHERE year_ = 2020;
-
-
--- 2020 yılına ait Samsun şehri için toplam ciro, işlem sayısı, minimum, maksimum ve ortalama tutarı getirir
-SELECT 
-    SUM(linetotal) AS TOTALLINETOTAL,
-    COUNT(*) AS KAYIT,
-    MIN(linetotal) AS MIN,
-    MAX(linetotal) AS MAX,
-    AVG(linetotal) AS AVG
-FROM saleorders 
-WHERE year_ = 2020 AND city = 'SAMSUN';
-
-
--- 2020 yılında her şehirde harcanan toplam parayı listeler
-SELECT city, SUM(linetotal) 
-FROM saleorders 
-WHERE year_ = 2020 
-GROUP BY city;
-
-
--- 2020 yılında şehir bazlı toplam harcama tutarını büyükten küçüğe sıralar
-SELECT city, SUM(linetotal) 
-FROM saleorders 
-WHERE year_ = 2020 
-GROUP BY city 
-ORDER BY SUM(linetotal) DESC;
-
-
--- 2020 yılında her şehirde her markaya ne kadar harcama yapıldığını listeler, büyükten küçüğe sıralı
-SELECT city, brand, SUM(linetotal) 
-FROM saleorders 
-WHERE year_ = 2020 
-GROUP BY city, brand 
-ORDER BY SUM(linetotal) DESC;
-
-
--- Dalin markasının haftanın hangi günlerinde daha çok satıldığını gösterir
-SELECT dayofweek, SUM(amount) AS amount 
-FROM saleorders 
-WHERE brand = 'DALIN' 
-GROUP BY dayofweek;
-
--- Dalin markasının kategori bazlı satış miktarlarını gösterir
-SELECT category1, category2, category3, SUM(amount) AS amount 
-FROM saleorders 
-WHERE brand = 'DALIN' 
-GROUP BY category1, category2, category3;
+SELECT COUNT(USERNAME_) FROM [dbo].[SALEORDERS]
