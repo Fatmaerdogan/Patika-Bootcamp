@@ -15,10 +15,10 @@ Bu depo, Patika.dev Veri Bilimi Bootcamp kapsamında gerçekleştirdiğim Python
 - **26_4_2025_Python_dersi.ipynb**  
   Python'da veri yapıları, döngüler ve temel veri analizi yapılarıyla ilgili giriş seviyesi konuları ele alır.
 
-  - **24.05.2025**  
+- **24.05.2025**  
   pandas kütüphanesi kullanılarak adres.csv, items.csv, orderdetail.csv, orders.csv, users.csv dosyaları üzerinden veri önizleme, merge, groupby, pivot gibi veri birleştirme ve özetleme işlemleri yapılmıştır.
 
-  - **31.05.2025**  
+- **31.05.2025**  
  	Gerçek veri analizi senaryosu simüle edilerek sipariş tabanlı bir veri seti üzerinde groupby, value_counts, merge, sort_values, head, tail gibi analiz fonksiyonları kullanılmıştır. Ayrıca veri akışı ve müşteri davranışlarını özetleyen örnek analizler sunulmuştur.
 
 - **Ödev2.ipynb**  
