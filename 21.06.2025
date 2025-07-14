@@ -1,1 +1,181 @@
+# Raporlama Nedir?
+**Raporlama**, belirli bir konu, dönem veya durum hakkında **veri ve bilgilerin toplanması**, **analiz edilmesi** ve **düzenli bir şekilde sunulması sürecidir**.
+- 📊 Veriler belirli kriterlere göre toplanır.
+- 📈 Analiz ve yorumlama işlemleri yapılır.
+- 📝 Sonuçlar düzenli, okunabilir ve anlamlı raporlar halinde sunulur.
+
+# Raporlama Neden Önemlidir?
+Raporlama, hem bireysel hem de kurumsal düzeyde birçok nedenle büyük önem taşır:
+- **Karar Alma**: Doğru ve zamanında raporlar, yöneticilerin ve karar alıcıların bilinçli ve stratejik adımlar atmasını sağlar.
+- **Performans Takibi**: Hedeflere ulaşılıp ulaşılmadığını, sürecin ne kadar verimli ilerlediğini gösterir ve performansın ölçülmesine olanak tanır.
+- **Şeffaflık ve Hesap Verebilirlik**: Faaliyetlerin ve harcamaların açıkça belirtilmesiyle şeffaflık sağlanır ve ilgili tarafların hesap verebilirliği artar.
+- **Sorun Tespiti**: Olumsuz eğilimler veya potansiyel sorunlar erken aşamada belirlenerek düzeltici önlemler alınabilir.
+- **İletişim**: Bilgilerin düzenli ve standardize bir formatta paylaşılması farklı departmanlar veya paydaşlar arasındaki iletişimi güçlendirir.
+- **Planlama ve Strateji Geliştirme**: Geçmiş verilere dayanarak geleceğe yönelik plan ve strateji oluşturulmasına katkıda bulunur.
+
+# Raporlamanın Amacı Nedir?
+**Veri görselleştirmenin amacı**, kişilerin **görme duyusunu uyararak**, **karmaşık verileri anlamlandırmalarına yardımcı olmaktır**.
+- Görsel araçlarla bilgiyi daha kolay anlaşılır hale getirmek
+- Kullanıcıların veriyi hızlı yorumlamasını sağlamak
+- Karar alma süreçlerini kolaylaştırmak
+
+# İyi Bir Raporun Özellikleri
+- **Doğruluk**: Sunulan veriler ve bilgilerin hatasız ve güvenilir olması.
+- **Netlik ve Anlaşılırlık**: Karmaşık bilgilerin sade ve anlaşılır bir dille sunulması, gereksiz jargon kullanımından kaçınılması.
+- **İlgililik**: Raporun amacına uygun ve ilgili paydaşların ihtiyaç duyduğu bilgileri içermesi.
+- **Tamlık**: Konuyla ilgili tüm önemli bilgilerin eksiksiz bir şekilde yer alması.
+- **Güncellik**: Özellikle hızlı değişen konularda bilgilerin mümkün olduğunca güncel olması.
+- **Görselleştirme**: Grafik, tablo ve diğer görsel araçlarla verilerin daha kolay anlaşılır hale getirilmesi.
+- **Kısalık**: Gereksiz detaylardan kaçınılarak öz ve amaca yönelik bilgi sunulması.
+
+# Raporlamanın Başlıca Kullanım Alanları
+- **Finans**
+- **Perakende**
+- **İnsan Kaynakları**
+- **Sağlık Sektörü**
+- **Eğitim Sektörü**
+- **Gayrimenkul ve İnşaat**
+- **Lojistik ve Tedarik Zinciri**
+Bu sektörlerde raporlama; karar alma, performans ölçümü, maliyet analizi ve süreç iyileştirme gibi temel işlevleri destekler.
+
+# Raporlamada Dikkat Edilmesi Gerekenler
+
+1. Yanıltıcı Eksen Kullanımı
+Raporlama ve veri görselleştirme sırasında eksen kullanımı çok önemlidir.
+Hatalı:
+- **Y ekseni 0’dan başlamaz**, küçük farklar büyük gibi görünür.
+- **Eksen aralıkları eşit değildir**, görsel algı çarpıtılır.
+Doğru:
+- Eksen **0’dan başlar** ve **aralıklar düzgün seçilir**.
+- Gerçek farklar **görsele doğru şekilde yansıtılır**.
+Bu iyi uygulamalar ile veri görselleştirmede hata riskinizi azaltabilirsiniz.
+
+2. Renklerin Anlamsız veya Karışık Kullanımı
+Hatalı Uygulamalar:
+- Renkler anlam taşımadan kullanılır. (Örnek: kırmızı/yeşil = iyi/kötü farkı yok).
+- Aynı kategoride **benzer renkler** kullanılır → fark edilmesi zorlaşır.
+- **Renk körlüğü dostu olmayan** paletler tercih edilir.
+Doğru Uygulamalar:
+- **Renkler anlamlı**, tutarlı ve az sayıda seçilir.
+- Genel anlamlara uygun kullanım yapılır:
+  - Kırmızı → negatif
+  - Yeşil → pozitif
+- Farklı kategoriler **net kontrast** ile ayrılır.
+
+3. Yanlış Grafik Türü Seçimi
+Hatalı Uygulamalar:
+- **Zaman serisi** verisi için **pasta grafiği** kullanılır.
+- **Karşılaştırma** için yanlışlıkla **çizgi grafik** tercih edilir (veya tam tersi).
+- **Parça-bütün ilişkisi** için uygun olmayan grafik türleri kullanılır.
+Doğru Uygulamalar:
+- **Çizgi grafik** → Zaman serileri için uygundur.
+- **Çubuk/sütun grafik** → Kategori karşılaştırmaları için uygundur.
+- **Pasta grafiği** → Az sayıda (3–5) kategori varsa ve **parça-bütün ilişkisi** göstermek için uygundur.
+Kural; Grafik tipi, verinin yapısına ve amacına uygun seçilmelidir.
+
+4. Aşırı Bilgi Yüklemesi (Information Overload)
+Hatalı Uygulamalar:
+- Bir sayfada **çok fazla grafik, tablo ve metrik** kullanılır.
+- **Aynı grafikte birden fazla eksen, ölçü, karşılaştırma** yer alır.
+- Dashboard karmaşık hale gelir, **kullanıcı neye bakacağını bilemez**.
+Doğru Uygulamalar:
+- **Her görsel tek bir soruya odaklanır** (“Bu KPI ne durumda?” gibi).
+- Sayfa düzeni **sade**, boşluklar **dengeli** tutulur.
+- Detaylar gerektiğinde **drill-through**, **tooltip** gibi yöntemlerle gösterilir.
+
+5. Etiketsiz veya Eksik Etiketli Grafikler
+Hatalı Uygulamalar:
+- Eksen adları **belirtilmemiştir** (X veya Y ekseninin neyi gösterdiği belli değildir).
+- **Renkler, simgeler, boyutlar** neyi temsil ettiğini açıklamaz.
+- **Tarih formatları belirsizdir** (örneğin, `03/04/2025` → Mart mı, Nisan mı?).
+Doğru Uygulamalar:
+- **Eksenler açıkça etiketlenmiştir**.
+- **Renk ve sembol kullanımı açıklayıcı bir legend** ile desteklenmiştir.
+- Tüm veriler **etiketli ve anlaşılırdır**.
+Amaç; Grafik **kendi başına okunup anlamlandırılabilecek** netlikte olmalıdır.
+
+6. Güvenlik ve Yetkilendirme Eksikliği
+Hatalı Uygulamalar:
+- Rapor **herkese açık**, kullanıcı yetkisine göre **filtre uygulanmıyor**.
+- Satış temsilcisi başka bölgelerin verilerini görebiliyor.
+- **Hassas veriler** (maaş, kişisel bilgiler) tüm kullanıcılar tarafından görüntülenebiliyor.
+Doğru Uygulamalar:
+- **Row-Level Security (RLS)** uygulanmıştır.
+- Yetkili kullanıcı yalnızca **kendi rolüne uygun veriyi** görebilir.
+- Dashboard **kullanıcıya göre kişiselleştirilmiş** olur:
+  - Örnek: sadece kendi bölgesi, mağazası, müşterisi görünür.
+Amaç; Veri güvenliği, gizlilik ve yetki kontrollü erişim sağlamak.
+
+7. Dokümantasyon ve Tanım Eksikliği
+Hatalı Uygulamalar:
+- KPI'ların **ne anlama geldiği** belirtilmez (örnek: “Aktif Kullanıcı” ne demek?).
+- Grafikte kullanılan **hesaplama mantığı** (formüller, filtreler) açıklanmaz.
+- **Veri kaynağı** ve **güncelleme sıklığı** gibi bilgiler eksiktir.
+Doğru Uygulamalar:
+- Her KPI için açıklayıcı bir tanım sağlanır (örneğin **tooltip**, bilgi ikonları veya sözlük).
+- Raporun **veri kaynağı, yenilenme sıklığı ve hesaplama mantığı** belgelenmiştir.
+- Dashboard için **kullanıcı kılavuzu** vardır (kısa, sade, hedef odaklı).
+Amaç; Raporun nasıl okunacağı ve neyi temsil ettiği herkes tarafından aynı şekilde anlaşılır olmalıdır.
+
+8. Güncel Olmayan Verilerle Çalışmak
+Hatalı Uygulamalar:
+- Dashboard'lar **eski verileri gösterir** (örneğin 3 gün önceki satışlar hâlâ ekranda).
+- **Veri yenileme tarihi belirtilmez**.
+- Kullanıcı **neyin güncel, neyin eski olduğunu ayırt edemez**.
+Doğru Uygulamalar:
+- Her raporda **veri güncellenme tarihi görünür**.
+- **Otomatik veri yenileme (schedule refresh)** yapılandırılmıştır.
+- **Gecikmeli veriler için uyarı/etiket** eklenir (örneğin: “Dün 22:00 verisi”).
+Amaç; Kullanıcı, raporda gördüğü verinin **tazeliğini bilir** ve **güvenle karar verir**.
+
+# Raporlama Araçları
+Veri görselleştirme ve raporlama için yaygın olarak kullanılan araçlar şunlardır:
+
+Microsoft Power BI
+- Kullanıcı dostu arayüzü ve güçlü görselleştirme yetenekleriyle öne çıkar.
+- Farklı veri kaynaklarına kolayca bağlanabilir.
+- **Etkileşimli raporlar ve panolar** oluşturma imkânı sunar.
+- Geniş bir kullanıcı tabanı ve aktif topluluk desteği bulunur.
+
+Tableau
+- Görselleştirme konusunda endüstri liderlerinden biridir.
+- **Sürükle-bırak yöntemi**yle karmaşık verileri estetik ve anlamlı grafiklere dönüştürür.
+- Daha çok **analitik odaklı profesyoneller** tarafından tercih edilir.
+- Güçlü interaktif analiz ve grafik dönüşüm araçlarına sahiptir.
+
+Qlik Sense / QlikView
+- İlişkisel veri modellemesi ve **keşifsel analiz yetenekleri** ile bilinir.
+- Kullanıcıların veriye serbestçe dalmasını ve kendi sorularını sormasını sağlar.
+- **İlişkisel motor** yapısıyla esnek ve güçlü analiz imkânı sunar.
+
+SAP BusinessObjects
+- Kurumsal düzeyde **raporlama, analiz ve planlama çözümleri** sunan kapsamlı bir BI paketidir.
+- Özellikle **büyük ölçekli şirketler** ve SAP ekosistemine entegre olmak isteyenler için uygundur.
+
+ Google Looker
+- Bulut tabanlı bir BI platformudur.
+- Daha çok **geliştirici dostu** bir yaklaşıma sahiptir.
+- Veri modellemesi için **LookML** adında kendi dili vardır.
+- **Güçlü entegrasyon** ve özelleştirme yetenekleri ile öne çıkar.
+
+# Excel vs Power BI Karşılaştırması
+Excel ve Power BI, aynı analiz motorları üzerinde çalışır ancak kullanım amaçları farklılaşır.
+Power Query, Data Model ve DAX
+Her iki araçta ortak olarak:
+- **Power Query** (veri dönüştürme)
+- **Data Model** (veri modelleme)
+- **DAX** (hesaplama dili) kullanılır.
+Excel Özellikleri
+- **Spreadsheets** (Çalışma Sayfaları)
+- **PivotTables**
+- **A1 Notation** (hücre referansı)
+- **Cell Formulas** (hücre formülleri)
+Power BI Özellikleri
+- **Report View** (rapor görünümü)
+- **Custom Visuals** (özel görseller)
+- **Interactive Dashboards** (etkileşimli panolar)
+- **Power BI Service** (bulut servisi)
+Öne Çıkan Notlar
+- Power BI, aynı veri modelleme altyapısını kullanır ancak **güçlü görselleştirme ve yayınlama araçları** ekler.
+- Excel’den Power BI’a geçiş kolaydır; **tüm veri modelini doğrudan Power BI’a aktarabilirsiniz**.
 
