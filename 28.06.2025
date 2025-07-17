@@ -1,0 +1,187 @@
+# Raporlama Sürecinde 3 Önemli Soru
+Veri analizinde doğru raporlama için öncelikle aşağıdaki 3 temel soruya cevap verilmelidir:
+## 1️⃣ Ne Tür Veri ile Çalışıyoruz?
+- **Finansal Veriler**
+- **Zaman Serisi Verileri**
+- **Coğrafik Veriler**
+- **Hiyerarşik Veriler**
+
+## 2️⃣ Ne Anlatmak İstiyoruz?
+- **Kıyaslama (Karşılaştırma)**
+- **İlişki Gösterimi**
+- **Dağılım Analizi**
+
+## 3️⃣ Son Kullanıcı Kim ve Neye İhtiyacı Var?
+- **Analist**
+- **Yönetici**
+- **Uzman**
+- **Genel Kullanıcı**
+Bu sorular, rapor tasarımının daha doğru ve etkili olmasını sağlar.
+
+# Hangi Tür Veri ile Çalışıyoruz?
+Raporlama sürecine başlamadan önce çalışılan veri türünü netleştirmek önemlidir. Veri türü doğru belirlendiğinde kullanılacak görseller ve analiz yöntemleri daha etkili seçilir.
+
+## Veri Türleri
+- **Time-series (Zaman Serisi Verileri)**
+- **Geospatial (Coğrafi Veriler)**
+- **Categorical (Kategori Verileri)**
+- **Hierarchical (Hiyerarşik Veriler)**
+- **Financial (Finansal Veriler)**
+- **Textual (Metin Verileri)**
+- **Funnel (Dönüşüm Verileri)**
+- **Survey (Anket Verileri)**
+Bu veri türlerine göre uygun analiz ve görselleştirme yöntemleri seçilmelidir.
+# Ne Anlatmak İstiyoruz?
+Raporlama ve görselleştirmede, anlatmak istediğimiz amaca göre uygun grafik türlerini belirlemek önemlidir.
+
+## 1️⃣ Karşılaştırma
+Zaman içerisindeki değişimleri veya farklı kategoriler arasındaki değer farklarını kıyaslamak için kullanılır.
+**Önerilen Görseller:**
+- Column/Bar Chart
+- Clustered Column/Bar
+- Data Table/Heat Map
+- Radar Chart
+- Line Chart (*time series*)
+- Area Chart (*time series*)
+
+## 2️⃣ Bileşim
+Bir yapının veya toplamın hangi parçalardan oluştuğunu göstermek için kullanılır.
+**Önerilen Görseller:**
+- Stacked Bar/Column Chart
+- Pie/Donut Chart
+- Stacked Area (*time series*)
+- Waterfall Chart (*gains/losses*)
+- Funnel Chart (*stages*)
+- Tree Map/Sunburst (*hierarchies*)
+
+## 3️⃣ Dağılım
+Veri kümesinde belirli değerlerin frekansını veya dağılımını göstermek için kullanılır.
+**Önerilen Görseller:**
+- Histogram
+- Density Plot
+- Box & Whisker
+- Scatter Plot
+- Data Table/Heat Map
+- Map/Choropleth (*geospatial*)
+
+## 4️⃣ İlişki
+Birden çok değişken arasındaki ilişkiyi göstermek için kullanılır.
+**Önerilen Görseller:**
+- Scatter Plot
+- Bubble Chart
+- Data Table/Heat Map
+- Correlation Matrix
+
+# Son Kullanıcı Kim ve Neye İhtiyacı Var?
+Raporlama yaparken hedef kitlenin ihtiyaçlarına göre içerik ve görseller düzenlenmelidir.
+
+## 1️⃣ Analist
+- **Detaylara inmeyi**, tüm ayrıntıları kavramayı ister.
+- **Kullanılan Görseller:**
+  - Tables veya combo charts
+  - Granüler detaylar, root-cause (kök neden) analizini destekler.
+  
+## 2️⃣ Müdür
+- **İş süreçlerini yönetmeye yardımcı olacak açık ve özet içgörüler** ister.
+- **Kullanılan Görseller:**
+  - Common charts & graphs
+  - Belirli içgörüler için sınırlı detay
+
+## 3️⃣ C-Level (Üst Yönetim)
+- **Genel performansı izlemek** ve üst düzey **KPI'lara** odaklanır.
+- **Kullanılan Görseller:**
+  - KPI kartları veya basit grafikler
+  - Detay minimum düzeyde tutulur, sadece önemli bağlamlar eklenir.
+
+# DAX Nedir?
+**DAX (Data Analysis Expressions)**; Power BI, Excel Power Pivot ve Analysis Services'te kullanılan bir **formül dilidir**. Veri modelindeki tablolar üzerinde hesaplamalar yapmamızı sağlar.
+
+## DAX Ne İşe Yarar?
+- Satırları iterek **yeni tablolar ve ilişkiler kurmaya** yardımcı olur.
+- **Veri dönüştürme** ve ETL işlemlerinde kullanılabilir.
+- Hesaplama ve ölçümlemelerde çok amaçlıdır.
+
+### 🎯 DAX ile Neler Yapılabilir?
+**Yeni Sütunlar (Calculated Column)**: Yeni hesaplanmış sütunlar ekleyebilirsiniz.
+**Yeni Metrikler / Ölçüler (Measure)**: Hesaplanmış ölçümler oluşturabilirsiniz.
+**Koşullu İfadeler, Filtreli Hesaplamalar**: İf koşulları, filtreleme ve özel hesaplamalar yapabilirsiniz.
+**Zaman Bazlı Analizler**: Önceki ay, yıl kıyaslamaları gibi zaman bazlı hesaplamalar yapabilirsiniz.
+
+# DAX Kullanım Türleri
+DAX fonksiyonları kullanılırken farklı kullanım türleri mevcuttur:
+| Kullanım Türü         | Ne için Kullanılır?                                    | Örnekler                            |
+|------------------------|-------------------------------------------------------|---------------------------------------|
+| **Calculated Column**  | Satır bazlı hesaplama                                 | `Yaş = TODAY() - DoğumTarihi`        |
+| **Measure**            | Agregasyon (toplam, ortalama vb.)                    | `Toplam Satış`                        |
+| **Table Expression**   | Dinamik tablo oluşturma veya filtreleme               | `FILTER`, `VALUES` fonksiyonları      |
+
+
+## 🎯 Özet
+- **Calculated Column**: Satır başına hesaplama oluşturur.
+- **Measure**: Toplama, ortalama gibi hesaplamalarda kullanılır.
+- **Table Expression**: Dinamik tablolar ve filtre uygulamaları için kullanılır.
+
+# DAX Syntax Temelleri
+DAX (Data Analysis Expressions) dilinde formüller belirli bir yapıyı takip eder.
+Örnek DAX Formülü:
+```dax
+Total Sales = SUM(Orders[TotalPrice])
+
+# DAX Operatorleri
+DAX dilinde farklı türde operatörler kullanılır: Aritmetik, Karşılaştırma ve Mantıksal/Tekst Operatörleri.
+
+## ➗ Aritmetik Operatörler
+| Operatör | Anlamı        | Örnek       |
+|-----------|----------------|-------------|
+| `+`        | Toplama         | 2 + 7       |
+| `-`        | Çıkarma         | 5 - 3       |
+| `*`        | Çarpma          | 2 * 6       |
+| `/`        | Bölme           | 4 / 2       |
+| `^`        | Üs Alma (Exponent) | 2 ^ 5   |
+
+## 🔎 Karşılaştırma Operatörleri
+| Operatör | Anlamı               | Örnek                             |
+|-----------|-----------------------|-----------------------------------|
+| `=`        | Eşit                  | `[City] = "Boston"`              |
+| `>`        | Büyüktür              | `[Quantity] > 10`               |
+| `<`        | Küçüktür              | `[Quantity] < 10`               |
+| `>=`       | Büyük veya eşit       | `[Unit Price] >= 2.5`           |
+| `<=`       | Küçük veya eşit       | `[Unit Price] <= 2.5`           |
+| `<>`       | Eşit değil            | `[Country] <> "Mexico"`          |
+
+## 💡 Text / Logical Operatörler
+| Operatör | Anlamı                                                  | Örnek                                                         |
+|-----------|----------------------------------------------------------|---------------------------------------------------------------|
+| `&`       | Metin birleştirme                                         | `[City] & " - " & [State]`                                   |
+| `&&`      | AND Koşulu                                                | `([State]="MA") && ([Quantity]>10)`                          |
+| `||`      | OR Koşulu                                                 | `([State]="MA") || ([State]="CT")`                           |
+| `IN`      | OR Koşulu (liste ile birlikte)                            | `'Store Lookup'[State] IN {"MA","CT","NY"}`                  |
+Bu operatörler, DAX hesaplamalarının temelini oluşturur.
+
+# DAX Common Function Categories
+DAX fonksiyonları işlevsel kategorilere ayrılır. İşte temel başlıklar ve yaygın fonksiyon örnekleri:
+
+## 1️⃣ Math & Stats Functions
+- **Amaç:** Aggregation (toplama, ortalama), satır bazlı hesaplamalar.
+- **Örnekler:** SUM, AVERAGE, MAX/MIN, DIVIDE, COUNT/COUNTA, COUNTROWS, DISTINCTCOUNT
+- **Iterator Fonksiyonlar:** SUMX, AVERAGEX, MAXX/MINX, RANKX, COUNTX
+## 2️⃣ Logical Functions
+- **Amaç:** Koşullu ifadeler (if/then mantığı).
+- **Örnekler:** IF, IFERROR, AND, OR, NOT, SWITCH, TRUE, FALSE
+## 3️⃣ Text Functions
+- **Amaç:** Metin düzenleme ve biçimlendirme.
+- **Örnekler:** CONCATENATE, COMBINEVALUES, FORMAT, LEFT/MID/RIGHT, UPPER/LOWER, LEN, SEARCH/FIND, REPLACE, SUBSTITUTE, TRIM
+## 4️⃣ Filter Functions
+- **Amaç:** Tabloları ve filtre bağlamını değiştirmek.
+- **Örnekler:** CALCULATE, FILTER, ALL, ALLEXCEPT, ALLSELECTED, KEEPFILTERS, REMOVEFILTERS, SELECTEDVALUE
+## 5️⃣ Table Functions
+- **Amaç:** Tablo oluşturma veya tablo verisini dönüştürme.
+- **Örnekler:** SUMMARIZE, ADDCOLUMNS, GENERATESERIES, DISTINCT, VALUES, UNION, INTERSECT, TOPN
+## 6️⃣ Date & Time Functions
+- **Amaç:** Tarih/zaman hesaplamaları ve zaman zekâsı.
+- **Örnekler:** DATE, DATEDIFF, YEARFRAC, YEAR/MONTH, DAY/HOUR, TODAY/NOW, WEEKDAY, WEEKNUM, NETWORKDAYS
+- **Time Intelligence:** DATESYTD, DATESMTD, DATEADD, DATESBETWEEN
+## 7️⃣ Relationship Functions
+- **Amaç:** Tablo ilişkilerini yönetmek ve değiştirmek.
+- **Örnekler:** RELATED, RELATEDTABLE, CROSSFILTER, USERELATIONSHIP
+
